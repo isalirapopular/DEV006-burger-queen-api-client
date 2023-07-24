@@ -12,6 +12,9 @@ export function Form() {
             setError(true)
             return
         }
+
+        setError(false)
+        SpeechSynthesisUtterance([correo])
     }
     
     return (
