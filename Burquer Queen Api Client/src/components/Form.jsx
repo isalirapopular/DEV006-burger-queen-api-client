@@ -1,6 +1,6 @@
 import "./Form.css"
 import { useState } from "react"
-export function Form() {
+export function Form({setUser}) {
     const [correo, setCorreo] = useState("")
     const [contraseña, setContraseña] = useState("")
     const [error, setError] = useState(false)
@@ -14,7 +14,8 @@ export function Form() {
         }
 
         setError(false)
-        SpeechSynthesisUtterance([correo])
+        
+        setUser([correo])
     }
     
     return (

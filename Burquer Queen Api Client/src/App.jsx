@@ -1,24 +1,23 @@
 import { Form } from './components/Form'
-import { Home } from './components/Home' //no entiendo por que me sale este error
+import { Home } from './components/Home' 
 import { useState } from 'react'
 import './App.css'
 
 function App() {
 
-  const {user, setUser}=useState([])
+  const [user, setUser]=useState([])
   
 
   return (
-  <div className="App">
-    {
-      user.length > 0
-      ? <Form setUser= {setUser} />
-      : <Home/>
-    }
-    
-    <Form setUser= {setUser} />
-    <Home/>
-    </div>  
+    <div className='app'>
+      {
+        !user.length > 0
+        ?<Form setUser= {setUser}/>
+        :<Home setUser= {setUser}/>
+      }
+      
+
+    </div>
   )
 }
 
