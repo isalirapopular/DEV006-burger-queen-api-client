@@ -1,5 +1,6 @@
+
 import { login } from "../GetApi.js";
-import "./Form.css";
+import "./Form.css"
 import { useState } from "react";
 
 export function Form({ setUser }) {
@@ -42,6 +43,9 @@ export function Form({ setUser }) {
 
   return (
     <section>
+       <div className="img">
+      <img src="https://onedrive.live.com/embed?resid=5f2497285b7b79a0%21121282&authkey=%21ABZyNQn6tW6Ny3w&width=330&height=511" alt="BurguerQueenLogo" />
+      </div>
       <h1>Login</h1>
       <form className="formLogin" onSubmit={handleSubmit}>
         <input
@@ -58,6 +62,7 @@ export function Form({ setUser }) {
         <button>Iniciar sesión</button>
       </form>
       {error && <p>ERROR: Revisa tu correo o contraseña</p>}
+      
     </section>
   );
 }
