@@ -1,0 +1,23 @@
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 24px;
+    padding: 20px;
+    background-color: rgba(50, 0, 0, 1);
+}
+
+.img {
+    display: flex;
+    
+    order:1;
+}
+.img img {
+    width: 330px;
+    height: 511px;
+}
+.input {
+    display: flex;
+    order: 2;
+    
+}
