@@ -8,11 +8,13 @@ function App() {
 
   return (
     <div className='app'>
-      {user !== null ? (
-        <Home setUser={setUser} user={user} />
-      ) : (
-        <Form setUser={setUser} />
-      )}
+      {
+        user === null
+        ?<Form setUser= {setUser}/>
+        :<Home setUser= {setUser} user = {user} />
+      }
+      
+
     </div>
   );
 }
