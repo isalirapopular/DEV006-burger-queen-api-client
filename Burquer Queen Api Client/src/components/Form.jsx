@@ -1,43 +1,63 @@
-import "./Form.css"
-import { useState } from "react"
-export function Form({setUser}) {
-    const [correo, setCorreo] = useState("")
-    const [contraseña, setContraseña] = useState("")
-    const [error, setError] = useState(false)
+import { login } from "../loginApi.js";
+import "./Form.css";
+import { useState } from "react";
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+export function Form({ setUser }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+  const [user, setUserData] = useState({}); // Initialize user state with an empty object
 
-        if(correo === "" || contraseña === "") {
-            setError(true)
-            return
-        }
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-        setError(false)
-        
-        setUser([correo])
+    if (email === "" || password === "") {
+      setError(true);
+      return;
     }
-    
-    return (
-        <section>
-            <h1>Login</h1>
-            <form 
-                className= "formLogin"
-                onSubmit={handleSubmit}
-            >
-                <input 
-                type="text"
-                value={correo}
-                onChange= {e => setCorreo(e.target.value)}
-                />
-                <input type="password"
-                value={contraseña}
-                onChange= {e => setContraseña(e.target.value)}
-                />
 
-                <button>Iniciar sesión</button>
-            </form>
-            {error && <p>ERROR: Revisa tu correo o contraseña</p>}
-        </section>
-    )
+    login(email, password)
+      .then((res) => {
+        console.log(res);
+        setError(false);
+
+        setUserData({
+          token: res.accessToken,
+          user: res.user,
+        });
+
+        // Clear email and password fields after successful login
+        setEmail("");
+        setPassword("");
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(true);
+      });
+  };
+
+  function handleClick() {
+    // Implement any additional logic for button click here
+  }
+
+  return (
+    <section>
+      <h1>Login</h1>
+      <form className="formLogin" onSubmit={handleSubmit}>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <button>Iniciar sesión</button>
+      </form>
+      {error && <p>ERROR: Revisa tu correo o contraseña</p>}
+    </section>
+  );
 }

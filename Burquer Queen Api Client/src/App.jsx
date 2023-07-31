@@ -1,24 +1,20 @@
-import { Form } from './components/Form'
-import { Home } from './components/Home' 
-import { useState } from 'react'
-import './App.css'
+import { Form } from './components/Form';
+import { Home } from './components/Home';
+import { useState } from 'react';
+import './App.css';
 
 function App() {
-
-  const [user, setUser]=useState([])
-  
+  const [user, setUser] = useState(null);
 
   return (
     <div className='app'>
-      {
-        !user.length > 0
-        ?<Form setUser= {setUser}/>
-        :<Home setUser= {setUser}/>
-      }
-      
-
+      {user !== null ? (
+        <Home setUser={setUser} user={user} />
+      ) : (
+        <Form setUser={setUser} />
+      )}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
