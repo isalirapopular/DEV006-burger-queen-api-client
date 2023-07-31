@@ -1,10 +1,10 @@
-import { login } from "../loginApi.js";
+import { login } from "../GetApi.js";
 import "./Form.css";
 import { useState } from "react";
 
 export function Form({ setUser }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("grace.hopper@systers.xyz");
+  const [password, setPassword] = useState("123456");
   const [error, setError] = useState(false);
   const [user, setUserData] = useState({}); // Initialize user state with an empty object
 
