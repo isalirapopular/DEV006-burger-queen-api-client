@@ -10,12 +10,16 @@ export async function login(email, password) {
 }
 
 export async function products(token) {
-  const response = await axios.get('http://localhost:8080/products', {
-    headers: {
-      authorization: 'bearer ' + token,
-    },
-  });
-  return response.data;
+  try {
+    const response = await axios.get('http://localhost:8080/products', {
+      headers: {
+        authorization: 'bearer ' + token,
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw error; // Rechazar la promesa con el error para que se maneje en el componente Home
+  }
 }
 
 

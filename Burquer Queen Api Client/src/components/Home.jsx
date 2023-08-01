@@ -5,20 +5,23 @@ export function Home({user, setUser}) {
     const [productsData, setProductsData] = useState([])
 
     function getProducts() {
-        console.log(products)
+        console.log(user.token);
         products(user.token)
-        .then((data) =>{
-            setProductsData(data)
-        }).catch(console.error)
+        .then((data) => {
+          setProductsData(data);
+        })
+        .catch((error) => {
+          console.error("Error al obtener los productos:", error); // Muestra cualquier error en la consola
+        });
     }
-
-    const handleLogout=()=>{
-        setUser(null)
-    }
+  
+    const handleLogout = () => {
+      setUser(null);
+    };
+  
     useEffect(() => {
-        getProducts()
-    }, [])
-    ;
+      getProducts();
+    }, [user.token]);
     return(
         <div>
             <button>Desayuno</button>
