@@ -5,18 +5,22 @@ import './App.css';
 
 function App() {
   const [user, setUser] = useState(null);
-
+  const handleSetUser = (userData) => {
+    setUser(userData);
+  };
   return (
     <div className='app'>
-      {
-        user === null
-        ?<Form setUser= {setUser}/>
-        :<Home setUser= {setUser} user = {user} />
-      }
-      
-
+      {user === null ? (
+        <Form setUser={handleSetUser} />
+      ) : (
+        <Home setUser={handleSetUser} user={user} />
+      )}
+   
     </div>
   );
 }
 
 export default App;
+  
+
+ 

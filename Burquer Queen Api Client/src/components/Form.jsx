@@ -9,33 +9,29 @@ export function Form({ setUser }) {
   const [error, setError] = useState(false);
   
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-
+  
     if (email === "" || password === "") {
       setError(true);
       return;
     }
-
+  
     login(email, password)
       .then((res) => {
-        
         setError(false);
-
+  
         setUser({
           token: res.accessToken,
           user: res.user,
-        })
+        });
       })
       .catch((err) => {
         console.log(err);
-        
       });
-
+  }
  
-
-  
-  return (
+return (
     <section>
        <div className="img">
       <img src="https://onedrive.live.com/embed?resid=5f2497285b7b79a0%21121282&authkey=%21ABZyNQn6tW6Ny3w&width=330&height=511" alt="BurguerQueenLogo" />
@@ -60,4 +56,4 @@ export function Form({ setUser }) {
     </section>
   );
 }
-}
+
