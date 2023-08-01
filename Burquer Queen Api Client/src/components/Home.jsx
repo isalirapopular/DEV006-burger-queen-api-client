@@ -1,25 +1,33 @@
-import { useState, useEffect } from "react"
-import { products } from "../GetApi"
+import { useState, useEffect } from "react";
+import { products } from "./GetApi.js"
 
 export function Home({user, setUser}) {
-    const [products, setProducts] = useState([])
+    const [productsData, setProductsData] = useState([])
 
     function getProducts() {
         console.log(products)
         products(user.token)
         .then((data) =>{
-            setProducts(data)
+            setProductsData(data)
         }).catch(console.error)
     }
 
     const handleLogout=()=>{
-        setUser([])
+        setUser(null)
     }
+    useEffect(() => {
+        getProducts()
+    }, [])
+    ;
     return(
         <div>
-            <h1>Bienvenido</h1>
-            <h2>{user}</h2>
+            <button>Desayuno</button>
+            <button>Almuerzo</button>
+            {productsData.map((product) => (
+               <li key={product.id}>{product.name} ${product.price}</li>
+               ))}
+            
             <button onClick={handleLogout}>Cerrar Sesion</button>
         </div>
-    )
+    );
 }

@@ -9,14 +9,16 @@ export async function login(email, password) {
   return data;
 }
 
-export async function products (token) {
-  const productsData = await axios.get('http://localhost:8080/products', {
-    Headers:{
-      authorization: 'bearer ' + token
-      
-    }
-})
-return productsData.data;
+export async function products(token) {
+  const response = await axios.get('http://localhost:8080/products', {
+    headers: {
+      authorization: 'bearer ' + token,
+    },
+  });
+  return response.data;
 }
+
+
+
 
 
