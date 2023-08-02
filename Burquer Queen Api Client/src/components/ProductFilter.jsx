@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 
 export function ProductFilter({ productsData, setFilteredProducts }) {
-    const [selectedType, setSelectedType] = useState('');
   
-    const handleTypeChange = (event) => {
-      setSelectedType(event.target.value);
-      filterProducts(event.target.value);
+    const handleTypeChange = (type) => {
+      filterProducts(type);
     };
   
     const filterProducts = (type) => {
@@ -15,20 +13,17 @@ export function ProductFilter({ productsData, setFilteredProducts }) {
         setFilteredProducts(productsData);
       } else {
         const filteredProducts = productsData.filter((product) => product.type === type);
-        console.log('Productos filtrados:', filteredProducts);
+        console.log('Productos filtrados:', setFilteredProducts);
         setFilteredProducts(filteredProducts);
       }
     };
   
     return (
       <div>
-        <label htmlFor="productType">Filtrar por tipo:</label>
-        <select id="productType" value={selectedType} onChange={handleTypeChange}>
-          <option value="">Todos</option>
-          <option value="desayuno">Desayuno</option>
-          <option value="almuerzo">Almuerzo</option>
+        <button onClick={() => handleTypeChange('')}>Todos</button>
+          <button onClick={() => handleTypeChange('Desayuno')}>Desayuno</button>
+          <button onClick={() => handleTypeChange('Almuerzo')}>Almuerzo</button>
           {/* Agrega aquí más opciones de tipo según tus necesidades */}
-        </select>
       </div>
     );
   }

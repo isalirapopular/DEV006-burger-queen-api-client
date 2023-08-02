@@ -1,45 +1,36 @@
 import { useState, useEffect } from "react";
 import { products } from "./GetApi.js"
-import { ProductFilter } from './ProductFilter';
+import { ProductFilter } from "./ProductFilter.jsx";
 
 export function Home({user, setUser}) {
     const [productsData, setProductsData] = useState([])
-    const [filteredProducts, setFilteredProducts] = useState([]);
-
+    const [filteredProducts, setFilteredProducts] = useState([]); // Agrega el estado para los productos filtrados
+   
     function getProducts() {
-        console.log(user.token);
+        console.log(products)
         products(user.token)
-        .then((data) => {
-          console.log('acá se filtra', setFilteredProducts);
-          setProductsData(data);
-          setFilteredProducts(data);
-        })
-        .catch((error) => {
-          console.error("Error al obtener los productos:", error); // Muestra cualquier error en la consola
-        });
+        .then((data) =>{
+            setProductsData(data);
+            setFilteredProducts(data);
+        }).catch(console.error)
     }
-  
-    const handleLogout = () => {
-      setUser(null);
-    };
-  
+
+    const handleLogout=()=>{
+        setUser(null)
+    }
     useEffect(() => {
-      getProducts();
-    }, [user.token]);
+        getProducts()
+    }, [])
+    ;
     return(
-        <div>
-            <button>Desayuno</button>
-            <button>Almuerzo</button>
-            <ul>
-        {filteredProducts.map((product) => (
-          <li key={product.id}>
-            {product.name} ${product.price}
-          </li>
-        ))}
-          </ul>
+      <div>
       <ProductFilter productsData={productsData} setFilteredProducts={setFilteredProducts} />
-            
-            <button onClick={handleLogout}>Cerrar Sesion</button>
-        </div>
+      {filteredProducts.map((product) => (
+        <button key={product.id}>
+          {product.name} ${product.price}
+        </button>
+      ))}
+      <button onClick={handleLogout}>Cerrar Sesion</button>
+    </div>
     );
 }
