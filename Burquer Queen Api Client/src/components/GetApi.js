@@ -13,12 +13,12 @@ export async function products(token) {
   try {
     const response = await axios.get('http://localhost:8080/products', {
       headers: {
-        authorization: 'bearer ' + token,
+        authorization: 'Bearer ' + token,
       },
     });
     return response.data;
   } catch (error) {
-    throw error; // Rechazar la promesa con el error para que se maneje en el componente Home
+    return error; // Rechazar la promesa con el error para que se maneje en el componente Home
   }
 }
 
