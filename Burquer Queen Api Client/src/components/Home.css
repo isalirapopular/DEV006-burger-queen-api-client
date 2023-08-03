@@ -32,3 +32,15 @@
     display: flex;
     position: 4;
 }
+
+.sectionBody{
+    display: flex;
+    flex-direction: row;
+   
+}
+
+.selectedProducts{
+    background-color: rgba(237, 234, 210, 1);
+    color: black;
+    margin-left: 100px;
+}

@@ -32,6 +32,7 @@ export function Home({ user, setUser }) {
         <button className='buttonCerrarSeccion' onClick={handleLogout}>Cerrar Sesion</button>
         <ProductFilter productsData={productsData} setFilteredProducts={setFilteredProducts} />
       </header>
+      <section className="sectionBody">
       <section className="sectionProductos">
         {filteredProducts.map((product) => (
           <button
@@ -50,6 +51,7 @@ export function Home({ user, setUser }) {
           </div>
         ))}
       </div>
+      </section>
     </div>
   );
 }
