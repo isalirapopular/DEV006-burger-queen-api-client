@@ -2,11 +2,14 @@ import { useState, useEffect } from "react";
 import { products } from "./GetApi.js"
 import { ProductFilter } from "./ProductFilter.jsx";
 import './Home.css'
+import QuantityComponent from "./increOrDecre.jsx"
 
 export function Home({ user, setUser }) {
   const [productsData, setProductsData] = useState([])
   const [filteredProducts, setFilteredProducts] = useState([]); // Agrega el estado para los productos filtrados
   const [SelectedProducts, setSelectedProducts] = useState([]);
+  const [quantity, setQuantity] = useState(1);
+
   function getProducts() {
     console.log(products)
     products(user.token)
@@ -48,6 +51,7 @@ export function Home({ user, setUser }) {
         {SelectedProducts.map((product) => (
           <div key={product.id}>
             {product.name} ${product.price}
+            <QuantityComponent initialQuantity={quantity} />
           </div>
         ))}
       </div>
