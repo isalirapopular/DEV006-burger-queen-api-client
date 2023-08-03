@@ -39,8 +39,14 @@
    
 }
 
-.selectedProducts{
+.tikect{
     background-color: rgba(237, 234, 210, 1);
     color: black;
     margin-left: 100px;
+}
+
+.selectedProducts{
+    display: flex;
+    justify-content: space-between;
+
 }

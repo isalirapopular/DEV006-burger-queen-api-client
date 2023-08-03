@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './increOrDecre.css'
 
 const QuantityComponent = ({ initialQuantity }) => {
    // const ItemQuantityComponent = ({ initialQuantity }) => {
@@ -18,10 +19,10 @@ const QuantityComponent = ({ initialQuantity }) => {
     };
 
     return (
-        <div>
-            <button onClick={increaseQuantity}>Aumentar</button>
+        <div className='divIncreOrDecre'>
+            <button className='buttonMore' onClick={increaseQuantity}>+</button>
             <p>{quantity}</p>
-            <button onClick={decreaseQuantity}>Disminuir</button>
+            <button  className='buttonLess' onClick={decreaseQuantity}>-</button>
         </div>
     );
 };

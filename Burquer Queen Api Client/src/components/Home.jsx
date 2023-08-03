@@ -46,10 +46,10 @@ export function Home({ user, setUser }) {
           </button>
         ))}
       </section>
-      <div className="selectedProducts">
+      <div className="tikect">
         <h2>Productos seleccionados:</h2>
         {SelectedProducts.map((product) => (
-          <div key={product.id}>
+          <div className="selectedProducts" key={product.id}>
             {product.name} ${product.price}
             <QuantityComponent initialQuantity={quantity} />
           </div>
