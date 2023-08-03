@@ -8,6 +8,7 @@ export function Home({ user, setUser }) {
   const [productsData, setProductsData] = useState([])
   const [filteredProducts, setFilteredProducts] = useState([]); // Agrega el estado para los productos filtrados
   const [selectedProducts, setSelectedProducts] = useState([]);
+  const [quantity, setQuantity] = useState(1);
   
   function getProducts() {
     console.log(products)
@@ -46,14 +47,16 @@ export function Home({ user, setUser }) {
           handleButtonClick={handleButtonClick}
         />
 
-        <div className="selectedProducts">
-          <h2>Productos seleccionados:</h2>
-          {selectedProducts.map((product) => (
-            <div key={product.id}>
-              {product.name} ${product.price}
-            </div>
-          ))}
-        </div>
+</section>
+      <div className="tikect">
+        <h2>Productos seleccionados:</h2>
+        {SelectedProducts.map((product) => (
+          <div className="selectedProducts" key={product.id}>
+            {product.name} ${product.price}
+            <QuantityComponent initialQuantity={quantity} />
+          </div>
+        ))}
+      </div>
       </section>
     </div>
   );
