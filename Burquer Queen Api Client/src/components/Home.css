@@ -1,0 +1,46 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.navHome{
+    height: 20%;
+    width: 100%;
+    background-color: rgba(237, 234, 210, 1);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.sectionProductos{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: antiquewhite;
+    width: 50%;
+    height: auto;
+}
+
+.buttonProductos{
+    margin: 5%;
+}
+
+.buttonCerrarseccion{
+    display: flex;
+    position: 4;
+}
+
+.sectionBody{
+    display: flex;
+    flex-direction: row;
+   
+}
+
+.selectedProducts{
+    background-color: rgba(237, 234, 210, 1);
+    color: black;
+    margin-left: 100px;
+}

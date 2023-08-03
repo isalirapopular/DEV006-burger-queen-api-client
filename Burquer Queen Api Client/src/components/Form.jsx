@@ -1,5 +1,5 @@
-
-import { login } from "../GetApi.js";
+import React from "react";
+import { login } from "./GetApi.js";
 import "./Form.css"
 import { useState } from "react";
 
@@ -7,41 +7,31 @@ export function Form({ setUser }) {
   const [email, setEmail] = useState("grace.hopper@systers.xyz");
   const [password, setPassword] = useState("123456");
   const [error, setError] = useState(false);
-  const [user, setUserData] = useState({}); // Initialize user state with an empty object
+  
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-
+  
     if (email === "" || password === "") {
       setError(true);
       return;
     }
-
+  
     login(email, password)
       .then((res) => {
-        console.log(res);
         setError(false);
-
-        setUserData({
+  
+        setUser({
           token: res.accessToken,
           user: res.user,
         });
-
-        // Clear email and password fields after successful login
-        setEmail("");
-        setPassword("");
       })
       .catch((err) => {
         console.log(err);
-        setError(true);
       });
-  };
-
-  function handleClick() {
-    // Implement any additional logic for button click here
   }
-
-  return (
+ 
+return (
     <section>
        <div className="img">
       <img src="https://onedrive.live.com/embed?resid=5f2497285b7b79a0%21121282&authkey=%21ABZyNQn6tW6Ny3w&width=330&height=511" alt="BurguerQueenLogo" />
@@ -66,3 +56,4 @@ export function Form({ setUser }) {
     </section>
   );
 }
+
