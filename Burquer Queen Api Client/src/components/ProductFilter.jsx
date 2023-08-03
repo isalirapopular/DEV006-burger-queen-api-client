@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './ProductFilter.css';
 
 export function ProductFilter({ productsData, setFilteredProducts }) {
   
@@ -19,10 +20,10 @@ export function ProductFilter({ productsData, setFilteredProducts }) {
     };
   
     return (
-      <div>
-        <button onClick={() => handleTypeChange('')}>Todos</button>
-          <button onClick={() => handleTypeChange('Desayuno')}>Desayuno</button>
-          <button onClick={() => handleTypeChange('Almuerzo')}>Almuerzo</button>
+      <div className="filterButtonsContainer">
+        <button className="buttonTodos" onClick={() => handleTypeChange('')}>Todos</button>
+          <button  className="buttonDesayuno" onClick={() => handleTypeChange('Desayuno')}>Desayuno</button>
+          <button  className="buttonAlmuerzo" onClick={() => handleTypeChange('Almuerzo')}>Almuerzo</button>
           {/* Agrega aquí más opciones de tipo según tus necesidades */}
       </div>
     );
