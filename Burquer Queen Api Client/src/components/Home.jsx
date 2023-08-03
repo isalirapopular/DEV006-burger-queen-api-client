@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { products } from "./GetApi.js"
 import { ProductFilter } from "./ProductFilter.jsx";
+import SelectedProducts from "./SelectedProducts.jsx"
 import './Home.css'
-import QuantityComponent from "./increOrDecre.jsx"
 
 export function Home({ user, setUser }) {
   const [productsData, setProductsData] = useState([])
   const [filteredProducts, setFilteredProducts] = useState([]); // Agrega el estado para los productos filtrados
-  const [SelectedProducts, setSelectedProducts] = useState([]);
+  const [selectedProducts, setSelectedProducts] = useState([]);
   const [quantity, setQuantity] = useState(1);
-
+  
   function getProducts() {
     console.log(products)
     products(user.token)
@@ -27,25 +27,27 @@ export function Home({ user, setUser }) {
   }, [])
 
   const handleButtonClick = (product) => {
-    setSelectedProducts(prevSelectedProducts => [...prevSelectedProducts, product]);
+    setSelectedProducts((prevSelectedProducts) => [...prevSelectedProducts, product]);
   };
   return (
     <div className="main">
       <header className="navHome">
-        <button className='buttonCerrarSeccion' onClick={handleLogout}>Cerrar Sesion</button>
-        <ProductFilter productsData={productsData} setFilteredProducts={setFilteredProducts} />
+        <button className="buttonCerrarSeccion" onClick={handleLogout}>
+          Cerrar Sesion
+        </button>
+        <ProductFilter
+          productsData={productsData}
+          setFilteredProducts={setFilteredProducts}
+        />
       </header>
       <section className="sectionBody">
-      <section className="sectionProductos">
-        {filteredProducts.map((product) => (
-          <button
-            className='buttonProductos'
-            key={product.id}
-            onClick={() => handleButtonClick(product)}>
-            {product.name} ${product.price}
-          </button>
-        ))}
-      </section>
+        {/* Reemplaza la sección "sectionProductos" con el componente "SelectedProducts" */}
+        <SelectedProducts
+          filteredProducts={filteredProducts}
+          handleButtonClick={handleButtonClick}
+        />
+
+</section>
       <div className="tikect">
         <h2>Productos seleccionados:</h2>
         {SelectedProducts.map((product) => (
