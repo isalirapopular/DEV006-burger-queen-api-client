@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { products } from "./GetApi.js"
 import { ProductFilter } from './ProductFilter';
 
 export function Home({user, setUser}) {
     const [productsData, setProductsData] = useState([])
     const [filteredProducts, setFilteredProducts] = useState([]);
+    const [selectedType, setSelectedType] = useState('');
 
     function getProducts() {
         console.log(user.token);
