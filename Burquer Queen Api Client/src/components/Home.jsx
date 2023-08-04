@@ -31,6 +31,12 @@ export function Home({ user, setUser }) {
   const handleButtonClick = (product) => {
     setSelectedProducts((prevSelectedProducts) => [...prevSelectedProducts, product]);
   };
+
+  const handleDeleteButtonClick = (product) => {
+    setSelectedProducts((prevSelectedProducts) =>
+      prevSelectedProducts.filter((item) => item.id !== product.id)
+    );
+  };
   return (
     <div className="main">
       <header className="navHome">
@@ -51,12 +57,15 @@ export function Home({ user, setUser }) {
 
 </section>
     <section>
-      <div className="tikect">
+    <div className="tikect">
         <h2>Productos seleccionados:</h2>
         {selectedProducts.map((product) => (
           <div className="selectedProducts" key={product.id}>
             {product.name} ${product.price}
             <QuantityComponent initialQuantity={quantity} />
+            <button onClick={() => handleDeleteButtonClick(product)}>
+              Eliminar
+            </button>
           </div>
         ))}
       </div>

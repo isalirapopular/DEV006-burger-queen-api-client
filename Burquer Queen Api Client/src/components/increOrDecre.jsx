@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './increOrDecre.css'
 
 const QuantityComponent = ({ initialQuantity }) => {
-   // const ItemQuantityComponent = ({ initialQuantity }) => {
+   
     const [quantity, setQuantity] = useState(initialQuantity);
   
 

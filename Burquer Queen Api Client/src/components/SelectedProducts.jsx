@@ -1,16 +1,17 @@
 import React from "react";
 
-const SelectedProducts = ({ filteredProducts, handleButtonClick }) => {
+const SelectedProducts = ({ filteredProducts, handleButtonClick, handleDeleteButtonClick }) => {
   return (
     <section className="sectionProductos">
       {filteredProducts.map((product) => (
-        <button
-          className="buttonProductos"
-          key={product.id}
-          onClick={() => handleButtonClick(product)}
-        >
-          {product.name} ${product.price}
-        </button>
+        <div key={product.id}>
+          <button
+            className="buttonProductos"
+            onClick={() => handleButtonClick(product)}
+          >
+            {product.name} ${product.price}
+          </button>
+        </div>
       ))}
     </section>
   );
