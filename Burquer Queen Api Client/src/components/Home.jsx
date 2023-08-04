@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { products } from "./GetApi.js"
 import { ProductFilter } from "./ProductFilter.jsx";
 import SelectedProducts from "./SelectedProducts.jsx"
+import QuantityComponent from "./increOrDecre.jsx"
+
 import './Home.css'
 
 export function Home({ user, setUser }) {
@@ -48,9 +50,10 @@ export function Home({ user, setUser }) {
         />
 
 </section>
+    <section>
       <div className="tikect">
         <h2>Productos seleccionados:</h2>
-        {SelectedProducts.map((product) => (
+        {selectedProducts.map((product) => (
           <div className="selectedProducts" key={product.id}>
             {product.name} ${product.price}
             <QuantityComponent initialQuantity={quantity} />
