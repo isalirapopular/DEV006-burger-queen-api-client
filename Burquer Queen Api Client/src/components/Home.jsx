@@ -4,7 +4,7 @@ import { ProductFilter } from "./ProductFilter.jsx";
 import SelectedProducts from "./SelectedProducts.jsx";
 import QuantityComponent from "./increOrDecre.jsx";
 
-import './Home.css';
+import "./Home.css";
 
 export function Home({ user, setUser }) {
   const [productsData, setProductsData] = useState([]);
@@ -62,7 +62,7 @@ export function Home({ user, setUser }) {
       console.log("No hay productos seleccionados para hacer el pedido.");
       return;
     }
-    
+
     const order = {
       userId: user.id,
       client: orderName,
@@ -86,6 +86,9 @@ export function Home({ user, setUser }) {
   return (
     <div className="main">
       <header className="navHome">
+      <div className="userEmail">
+          {user && <p>Hola {user.user.email}</p>}
+      </div>
         <button className="buttonCerrarSeccion" onClick={handleLogout}>
           Cerrar Sesion
         </button>
@@ -129,7 +132,7 @@ export function Home({ user, setUser }) {
           ))}
         </div>
       </section>
-      
+
       <button onClick={handleMakeOrder}>Hacer pedido</button>
     </div>
   );
