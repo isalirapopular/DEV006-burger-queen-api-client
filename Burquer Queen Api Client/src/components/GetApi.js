@@ -21,11 +21,11 @@ export async function products(token) {
     return error; // Rechazar la promesa con el error para que se maneje en el componente Home
   }
 }
-export async function getClients(token) {
+export async function getOrders(token) {
   try {
     const response = await axios.get('http://localhost:8080/orders', {
       headers: {
-        authorization: 'Bearer ' + token,
+        Authorization: 'Bearer ' + token,
       },
     });
     return response.data;
