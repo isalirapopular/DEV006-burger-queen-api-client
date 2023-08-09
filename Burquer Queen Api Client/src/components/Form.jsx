@@ -7,6 +7,7 @@ export function Form({ setUser }) {
   const [email, setEmail] = useState("grace.hopper@systers.xyz");
   const [password, setPassword] = useState("123456");
   const [error, setError] = useState(false);
+  const [userEmail, setUserEmail] = useState("");
   
 
   function handleSubmit(e) {
@@ -25,6 +26,7 @@ export function Form({ setUser }) {
           token: res.accessToken,
           user: res.user,
         });
+        setUserEmail(res.user.email);
       })
       .catch((err) => {
         console.log(err);

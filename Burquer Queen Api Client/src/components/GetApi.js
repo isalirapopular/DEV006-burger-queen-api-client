@@ -34,6 +34,22 @@ export async function getOrders(token) {
   }
 }
 
+export async function getUserDetails(token, userIdOrEmail) {
+  try {
+    const response = await axios.get(`http://localhost:8080/users/${userIdOrEmail}`, {
+      headers: {
+        Authorization: 'Bearer ' + token,
+      },
+    });
+
+    return response.data; // Devolver los detalles del usuario
+  } catch (error) {
+    console.error('Error al obtener detalles del usuario:', error);
+    return { error: 'Error al obtener detalles del usuario' };
+  }
+}
+
+
 
 
 
