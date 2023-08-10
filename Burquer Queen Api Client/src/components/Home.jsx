@@ -52,7 +52,8 @@ export function Home({ user, setUser }) {
     const newProduct = {
       ...product,
       orderName: orderName,
-      clientId: clientId,
+      clientId: clientId, 
+      qty: quantity,
     };
     setSelectedProducts((prevSelectedProducts) => [
       ...prevSelectedProducts,
@@ -74,7 +75,7 @@ export function Home({ user, setUser }) {
           userId: userDetails.id,
           client: orderName,
             products: selectedProducts.map((product) => ({
-            qty: product.qty,
+            qty: product.quantity || 1,
           product: {
             id: product.id,
             name: product.name,
@@ -97,6 +98,15 @@ export function Home({ user, setUser }) {
     console.error("Error al realizar el pedido:", error);
   }
 };
+
+const priceQuantity = (product) => {
+  console.log(product)
+  return  product.price * product.qty;
+}
+
+
+
+
   return (
     <div className="main">
       <header className="navHome">
@@ -135,7 +145,12 @@ export function Home({ user, setUser }) {
           {selectedProducts.map((product) => (
             <div className="selectedProducts" key={product.id}>
               {product.name} ${product.price}
-              <QuantityComponent initialQuantity={quantity} />
+              <QuantityComponent 
+              initialQuantity = {product.qty} 
+             product={product} 
+             selectedProducts={selectedProducts}
+             setSelectedProducts={setSelectedProducts}/>
+              <p>Total: ${priceQuantity(product)}</p>
               <button onClick={() => handleDeleteButtonClick(product)}>
                 Eliminar
               </button>
