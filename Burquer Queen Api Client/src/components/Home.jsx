@@ -104,6 +104,12 @@ const priceQuantity = (product) => {
   return  product.price * product.qty;
 }
 
+const priceTotal = () => {
+  console.log(priceTotal, 'acá el total')
+  return selectedProducts.reduce((total, product) => total + priceQuantity (product), 0)
+  
+}
+
 
 
 
@@ -159,10 +165,12 @@ const priceQuantity = (product) => {
               <p>ID del Pedido: {product.orderId}</p>
             </div>
           ))}
+          <p>TOTAL $:{priceTotal()}</p>
         </div>
       </section>
 
       <button onClick={handleMakeOrder}>Hacer pedido</button>
+      
     </div>
   );
 }
