@@ -12,15 +12,39 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.logoHeader{
+    width: 80px;
+    height: auto;
+}
+
+.userEmail{
+    color: black;
+}
+
+.productSelect{
+    width: 100%;
+    height: auto;
+}
+
+.filterButtonsContainer{
+    display: flex;
+    justify-content: space-around;
+}   
+
+.filterButtonsContainer button{
+    margin-left: 10%;
 
 }
 
 .sectionProductos{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center; 
+    justify-content: center; 
     background-color: antiquewhite;
-    width: 50%;
+    width: 60%;
     height: auto;
 }
 
@@ -36,6 +60,7 @@
 .sectionBody{
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
    
 }
 
