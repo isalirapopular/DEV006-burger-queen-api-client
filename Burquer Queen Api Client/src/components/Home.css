@@ -65,13 +65,31 @@
 }
 
 .tikect{
+    display: flex;
+    justify-content: ;
+    width: 70%;
     background-color: rgba(237, 234, 210, 1);
     color: black;
     margin-left: 100px;
+    flex-direction: column;
 }
 
 .selectedProducts{
     display: flex;
     justify-content: space-between;
 
+}
+
+.buttonHacerPedido{
+    display: flex;
+    flex-direction: column;
+    height: 5%;
+    width:50%;
+    align-items: center;
+}
+
+.divIncreOrDecre{
+    display: flex;
+    flex-direction: row;
+    
 }
