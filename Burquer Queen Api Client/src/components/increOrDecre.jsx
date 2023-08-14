@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './Home.css';
 
 const QuantityComponent = ({ initialQuantity }) => {
-   
+
     const [quantity, setQuantity] = useState(initialQuantity);
-  
+
 
     // Función para aumentar la cantidad
     const increaseQuantity = () => {
@@ -20,9 +20,10 @@ const QuantityComponent = ({ initialQuantity }) => {
 
     return (
         <div className='divIncreOrDecre'>
-            <button className='buttonMore' onClick={increaseQuantity}>+</button>
+            <button className='buttonLess' onClick={decreaseQuantity}>-</button>
             <p>{quantity}</p>
-            <button  className='buttonLess' onClick={decreaseQuantity}>-</button>
+            <button className='buttonMore' onClick={increaseQuantity}>+</button>
+
         </div>
     );
 };

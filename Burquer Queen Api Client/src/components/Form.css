@@ -1,3 +1,10 @@
+.sectionForm{
+    display: flex;
+    flex-direction: column;
+    background-color:  rgba(50, 0, 0, 1);
+    align-items: center;
+}
+
 .formLogin {
     display: flex;
     flex-direction: column;
@@ -7,15 +14,25 @@
     background-color: rgba(50, 0, 0, 1);
 }
 
-.img {
+.logoForm {
     display: flex;
-    
-    order:1;
+    order: 0;
+    height: 20%;
+  padding: 0%;
 }
-.img img {
-    width: 330px;
-    height: 511px;
+
+.pUsuario{
+display: flex;
+color: rgba(152, 65, 65, 1);
+font-weight: bold;
+align-items: left;
 }
+
+.pContraseña{
+  color:rgba(152, 65, 65, 1);
+  font-weight: bold;
+}
+
 .input {
     display: flex;
     order: 2;

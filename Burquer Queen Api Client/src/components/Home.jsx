@@ -163,13 +163,10 @@ export function Home({ user, setUser }) {
               <button onClick={() => handleDeleteButtonClick(product)}>
                 Eliminar
               </button>
-              <p>Nombre del Pedido: {product.orderName}</p>
-              <p>ID del Cliente: {product.clientId}</p>
-              <p>ID del Pedido: {product.orderId}</p>
             </div>
           ))}
           <p>TOTAL $:{priceTotal()}</p>
-          <button onClick={handleMakeOrder}>Hacer pedido</button>
+          <button className="buttonHacerPedido" onClick={handleMakeOrder}>Hacer pedido</button>
         </div>
       </section>
 
