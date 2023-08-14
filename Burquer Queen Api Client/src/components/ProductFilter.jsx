@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './ProductFilter.css';
+import './Home.css';
 
 export function ProductFilter({ productsData, setFilteredProducts }) {
   

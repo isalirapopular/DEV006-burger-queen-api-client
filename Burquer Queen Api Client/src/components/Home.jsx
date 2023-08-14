@@ -33,18 +33,18 @@ export function Home({ user, setUser }) {
   function fetchUserDetails(token, userEmail) {
     getUserDetails(token, userEmail)
       .then((data) => {
-        console.log("User Details:", data); 
+        console.log("User Details:", data);
         setUserDetails(data);
       })
       .catch((error) => {
         console.error('Error al obtener detalles del usuario:', error);
       });
   }
-  
+
   useEffect(() => {
     getProducts();
     console.log("Token:", user.token);
-  console.log("User Email:", user.user.email);
+    console.log("User Email:", user.user.email);
     fetchUserDetails(user.token, user.user.id); // Pasar el correo electrónico del usuario logueado
   }, []);
 
@@ -52,7 +52,7 @@ export function Home({ user, setUser }) {
     const newProduct = {
       ...product,
       orderName: orderName,
-      clientId: clientId, 
+      clientId: clientId,
       qty: quantity,
     };
     setSelectedProducts((prevSelectedProducts) => [
@@ -67,48 +67,48 @@ export function Home({ user, setUser }) {
     );
   };
 
-  
+
   const handleMakeOrder = async () => {
-      try {
-        if (userDetails && userDetails.id) { 
-          const order = {
+    try {
+      if (userDetails && userDetails.id) {
+        const order = {
           userId: userDetails.id,
           client: orderName,
-            products: selectedProducts.map((product) => ({
+          products: selectedProducts.map((product) => ({
             qty: product.quantity || 1,
-          product: {
-            id: product.id,
-            name: product.name,
-            price: product.price,
-            image: product.image,
-            type: product.type,
-            dateEntry: product.dateEntry,
-          },
-        })),
-        status: "pending",
-        dateEntry: new Date().toISOString(),
-      };
+            product: {
+              id: product.id,
+              name: product.name,
+              price: product.price,
+              image: product.image,
+              type: product.type,
+              dateEntry: product.dateEntry,
+            },
+          })),
+          status: "pending",
+          dateEntry: new Date().toISOString(),
+        };
 
-      console.log("Orden realizada:", order);
-      setSelectedProducts([]);
-    } else {
-      console.error("Usuario no encontrado");
+        console.log("Orden realizada:", order);
+        setSelectedProducts([]);
+      } else {
+        console.error("Usuario no encontrado");
+      }
+    } catch (error) {
+      console.error("Error al realizar el pedido:", error);
     }
-  } catch (error) {
-    console.error("Error al realizar el pedido:", error);
+  };
+
+  const priceQuantity = (product) => {
+    console.log(product)
+    return product.price * product.qty;
   }
-};
 
-const priceQuantity = (product) => {
-  console.log(product)
-  return  product.price * product.qty;
-}
+  const priceTotal = () => {
+    console.log(priceTotal, 'acá el total')
+    return selectedProducts.reduce((total, product) => total + priceQuantity(product), 0)
 
-const priceTotal = () => {
-  console.log(priceTotal, 'acá el total')
-  return selectedProducts.reduce((total, product) => total + priceQuantity (product), 0)
-  
-}
+  }
 
 
 
@@ -116,46 +116,49 @@ const priceTotal = () => {
   return (
     <div className="main">
       <header className="navHome">
+        <img className="logoHeader" src="https://onedrive.live.com/embed?resid=5f2497285b7b79a0%21121282&authkey=%21ABZyNQn6tW6Ny3w&width=330&height=511" alt="BurguerQueenLogo" />
         <div className="userEmail">
           {user && <p>Hola {user.user.email}</p>}
         </div>
-        <button className="buttonCerrarSeccion" onClick={handleLogout}>
-          Cerrar Sesion
-        </button>
         <ProductFilter
           productsData={productsData}
           setFilteredProducts={setFilteredProducts}
         />
+        <button className="buttonCerrarSeccion" onClick={handleLogout}>
+          Cerrar Sesion
+        </button>
       </header>
 
-      <div className="orderForm">
-        <input
-          type="text"
-          placeholder="Nombre del Pedido"
-          value={orderName}
-          onChange={(e) => setOrderName(e.target.value)}
-        />
-      </div>
+
 
       <section className="sectionBody">
-        {/* Reemplaza la sección "sectionProductos" con el componente "SelectedProducts" */}
-        <SelectedProducts
-          filteredProducts={filteredProducts}
-          handleButtonClick={handleButtonClick}
-        />
-      </section>
 
-      <section>
+        <section className="productSelect">
+          <SelectedProducts
+            filteredProducts={filteredProducts}
+            handleButtonClick={handleButtonClick}
+          />
+        </section>
+
+
         <div className="tikect">
+          <div className="orderForm">
+            <input
+              type="text"
+              placeholder="Nombre del Pedido"
+              value={orderName}
+              onChange={(e) => setOrderName(e.target.value)}
+            />
+          </div>
           <h2>Productos seleccionados:</h2>
           {selectedProducts.map((product) => (
             <div className="selectedProducts" key={product.id}>
               {product.name} ${product.price}
-              <QuantityComponent 
-              initialQuantity = {product.qty} 
-             product={product} 
-             selectedProducts={selectedProducts}
-             setSelectedProducts={setSelectedProducts}/>
+              <QuantityComponent
+                initialQuantity={product.qty}
+                product={product}
+                selectedProducts={selectedProducts}
+                setSelectedProducts={setSelectedProducts} />
               <p>Total: ${priceQuantity(product)}</p>
               <button onClick={() => handleDeleteButtonClick(product)}>
                 Eliminar
@@ -166,11 +169,12 @@ const priceTotal = () => {
             </div>
           ))}
           <p>TOTAL $:{priceTotal()}</p>
+          <button onClick={handleMakeOrder}>Hacer pedido</button>
         </div>
       </section>
 
-      <button onClick={handleMakeOrder}>Hacer pedido</button>
-      
+
+
     </div>
   );
 }

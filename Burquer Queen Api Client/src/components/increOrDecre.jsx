@@ -1,26 +1,20 @@
 import React, { useState } from 'react';
-import './increOrDecre.css'
+import './Home.css';
 
-const QuantityComponent = ( {initialQuantity, product,  selectedProducts, setSelectedProducts}) => {
+const QuantityComponent = ({ initialQuantity }) => {
    
     const [quantity, setQuantity] = useState(initialQuantity);
-
+  
 
     // Función para aumentar la cantidad
     const increaseQuantity = () => {
         setQuantity(prevQuantity => prevQuantity + 1);
-        const newProduct2 = selectedProducts.map(producto => producto.id === product.id ?{...producto, qty:quantity + 1} : producto)
-        console.log(newProduct2)
-        setSelectedProducts(newProduct2)
     };
 
     // Función para disminuir la cantidad
     const decreaseQuantity = () => {
         if (quantity > 1) {
             setQuantity(prevQuantity => prevQuantity - 1);
-            const newProduct2 = selectedProducts.map(producto => producto.id === product.id ?{...producto, qty:quantity - 1} : producto)
-        console.log(newProduct2)
-        setSelectedProducts(newProduct2)
         }
     };
 
