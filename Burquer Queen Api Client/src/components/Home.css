@@ -66,7 +66,6 @@
 
 .tikect{
     display: flex;
-    justify-content: ;
     width: 70%;
     background-color: rgba(237, 234, 210, 1);
     color: black;
@@ -74,11 +73,7 @@
     flex-direction: column;
 }
 
-.selectedProducts{
-    display: flex;
-    justify-content: space-between;
 
-}
 
 .buttonHacerPedido{
     display: flex;
@@ -91,5 +86,5 @@
 .divIncreOrDecre{
     display: flex;
     flex-direction: row;
-    
+
 }

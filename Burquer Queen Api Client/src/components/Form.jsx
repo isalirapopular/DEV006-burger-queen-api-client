@@ -38,8 +38,9 @@ export function Form({ setUser }) {
         <img className="logoForm" src="https://onedrive.live.com/embed?resid=5f2497285b7b79a0%21121282&authkey=%21ABZyNQn6tW6Ny3w&width=330&height=511" alt="BurguerQueenLogo" />
     
       <form className="formLogin" onSubmit={handleSubmit}>
-        <p className="pUsuario">Usuario</p>
+        <p className="pUsuario">Correo</p>
         <input
+        className="inputEmail"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -47,16 +48,17 @@ export function Form({ setUser }) {
         />
         <p className="pContraseña">Contraseña</p>
         <input
+        className="inputPassword"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Ingresa tu email"
         />
 
-        <button>Iniciar sesión</button>
+       
       </form>
       {error && <p>ERROR: Revisa tu correo o contraseña</p>}
-
+      <button className="buttonIniciarSesion">Iniciar sesión</button>
     </section>
   );
 }
