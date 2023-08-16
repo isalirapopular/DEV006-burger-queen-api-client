@@ -1,40 +1,75 @@
-.sectionForm{
-    display: flex;
-    flex-direction: column;
-    background-color:  rgba(50, 0, 0, 1);
-    align-items: center;
+.sectionForm {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(50, 0, 0, 1);
+  align-items: center;
+padding:3%;
+border: none;
 }
 
 .formLogin {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 24px;
-    padding: 20px;
-    background-color: rgba(50, 0, 0, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: rgba(50, 0, 0, 1);
+  align-items: center;
 }
 
 .logoForm {
-    display: flex;
-    order: 0;
-    height: 20%;
-  padding: 0%;
+  display: flex;
+  order: 0;
+width: 15%;
+justify-content: center;
+
+ 
 }
 
-.pUsuario{
-display: flex;
-color: rgba(152, 65, 65, 1);
-font-weight: bold;
-align-items: left;
+.pUsuario,
+.pContraseña {
+  color: rgba(152, 65, 65, 1);
+  align-items: left;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 1.5rem;
+
 }
 
-.pContraseña{
-  color:rgba(152, 65, 65, 1);
-  font-weight: bold;
+.inputEmail,
+.inputPassword {
+  width: 550px;
+  height: 50px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid #22941F;
+  background: #EDEAD2;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin-top: -3%;
 }
 
-.input {
-    display: flex;
-    order: 2;
-    
+.inputPassword::placeholder, 
+.inputEmail::placeholder{
+  font-family: 'Inconsolata', monospace;
+}
+
+.buttonIniciarSesion {
+  display: flex;
+  margin-top: 9%;
+  width: 380px;
+  height: 60px;
+  border-radius: 10px;
+  background: #E04D39;
+  justify-content: center;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  color: rgba(237, 234, 210, 1);
+  font-size: 150%;
+  align-items: center;
+}
+
+.buttonIniciarSesion:hover{
+background: #22941F;
+transition: background-color 0.5s ease;
+}
+
+.error{
+  color: red;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
