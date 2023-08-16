@@ -143,14 +143,15 @@ export function Home({ user, setUser }) {
 
         <div className="tikect">
           <div className="orderForm">
-            <input
+           
+          </div>
+          <h2 className="ticketTitle">Detalles del pedido</h2>
+          <input className="imputOrderName"
               type="text"
               placeholder="Nombre del Pedido"
               value={orderName}
               onChange={(e) => setOrderName(e.target.value)}
             />
-          </div>
-          <h2>Productos seleccionados:</h2>
           {selectedProducts.map((product) => (
             <div className="selectedProducts" key={product.id}>
               {product.name} ${product.price}
@@ -165,8 +166,11 @@ export function Home({ user, setUser }) {
               </button>
             </div>
           ))}
-          <p>TOTAL $:{priceTotal()}</p>
-          <button className="buttonHacerPedido" onClick={handleMakeOrder}>Hacer pedido</button>
+          <footer className="totalFooter">
+          <p className="totalTitle">TOTAL</p>
+          <p className="totalNumber"> $:{priceTotal()}</p>
+          </footer>
+          <button className="buttonHacerPedido" onClick={handleMakeOrder}>Enviar pedido</button>
         </div>
       </section>
 
