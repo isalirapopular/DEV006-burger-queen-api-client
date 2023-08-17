@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './increOrDecre.css'
+import './Home.css'
 
 const QuantityComponent = ( {initialQuantity, product,  selectedProducts, setSelectedProducts}) => {
    
@@ -26,9 +26,9 @@ const QuantityComponent = ( {initialQuantity, product,  selectedProducts, setSel
 
     return (
         <div className='divIncreOrDecre'>
-            <button className='buttonMore' onClick={increaseQuantity}>+</button>
+           <button  className='buttonLess' onClick={decreaseQuantity}>-</button>
             <p>{quantity}</p>
-            <button  className='buttonLess' onClick={decreaseQuantity}>-</button>
+            <button className='buttonMore' onClick={increaseQuantity}>+</button>
         </div>
     );
 };
