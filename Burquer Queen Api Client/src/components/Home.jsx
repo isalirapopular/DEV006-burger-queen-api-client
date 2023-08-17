@@ -124,8 +124,12 @@ export function Home({ user, setUser }) {
           productsData={productsData}
           setFilteredProducts={setFilteredProducts}
         />
-        <button className="buttonCerrarSeccion" onClick={handleLogout}>
-          Cerrar Sesion
+        <button className="buttonCerrarSesion" onClick={handleLogout}
+        style={{ outline: 'none', border: 'none', background: 'transparent', padding: 0 }}
+        >
+        <img style={{ width: 56, height: 56  }} src="../src/assets/logout.png" alt="delete" />
+        
+          
         </button>
       </header>
 
@@ -145,7 +149,7 @@ export function Home({ user, setUser }) {
           <div className="orderForm">
            
           </div>
-          <h2 className="ticketTitle">Detalles del pedido</h2>
+          <h2 className="ticketTitle">DETALLES DEL PEDIDO</h2>
           <input className="imputOrderName"
               type="text"
               placeholder="Nombre del Pedido"
@@ -161,13 +165,15 @@ export function Home({ user, setUser }) {
                 selectedProducts={selectedProducts}
                 setSelectedProducts={setSelectedProducts} />
               <p>Total: ${priceQuantity(product)}</p>
-              <button onClick={() => handleDeleteButtonClick(product)}>
-                Eliminar
-              </button>
+              <button onClick={() => handleDeleteButtonClick(product)}
+              style={{ outline: 'none', border: 'none', background: 'transparent', padding: 0 }}
+              >
+                <img style={{ width: 20, height: 25 }} src="../src/assets/trash.svg" alt="delete" />
+               </button>
             </div>
           ))}
           <footer className="totalFooter">
-          <p className="totalTitle">TOTAL</p>
+          <p className="totalTitle">Total</p>
           <p className="totalNumber"> $:{priceTotal()}</p>
           </footer>
           <button className="buttonHacerPedido" onClick={handleMakeOrder}>Enviar pedido</button>
