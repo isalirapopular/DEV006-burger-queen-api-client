@@ -4,12 +4,14 @@ html,
         height: 100% !important;
         margin: 0px;
         padding: 0px;
-        overflow: hidden;
+        
     }
 .main{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    min-height: 100vh; /* Altura mínima de la ventana gráfica */
+    overflow: auto; /
 }
 
 .navHome{
@@ -18,7 +20,7 @@ html,
     background-color: rgba(237, 234, 210, 1);
     padding: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -28,8 +30,57 @@ html,
 }
 
 .userEmail{
-    color: black;
+    color: #450101;
+    
+    font-family: 'Inconsolata', monospace;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
 }
+
+.filterButtonsContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.buttonTodos{ 
+    border-radius: 9px;
+    border: 5px solid #450101;
+    background: #32C704;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
+    width: 194px;
+    height: 75px;
+    flex-shrink: 0;
+    color: #450101;
+    text-align: center;
+    font-family: 'Inconsolata', monospace;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    }
+.buttonDesayuno, .buttonAlmuerzo { 
+    border-radius: 9px;
+    border: 5px solid #450101;
+    background: #E5CB7A;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)
+    width: 194px;
+    height: 75px;
+    flex-shrink: 0;
+    color: #450101;
+    text-align: center;
+    font-family: 'Inconsolata', monospace;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    }
+
+
+
 
 .productSelect{
     width: 100%;
@@ -60,7 +111,7 @@ html,
     margin: 5%;
 }
 
-.buttonCerrarseccion{
+.buttonCerrarSesion{
     display: flex;
     position: 4;
 }
@@ -70,20 +121,21 @@ html,
     flex-direction: row;
     justify-content: space-around;
     background-color: #450101;
+    padding: 64px 30px 20px 0;
    
 }
 
 .tikect{
     display: flex;
     flex-direction: column;
-    justify-content: ;
+    
 
     width: 70%;
     background-color: rgba(237, 234, 210, 1);
     border-radius: 29px;
     border: 8px solid #FFF;
     color: #450101;
-    margin-left: 100px;
+   
 
     
     
@@ -96,29 +148,54 @@ html,
     font-family: 'Bricolage Grotesque', sans-serif;
     font-family: 'Inconsolata', monospace;
     font-size: 36px;
-    font-style: normal;
-    font-weight: 400;   
-    line-height: normal;
+    font-style: bold;
+    font-weight: 700;   
+    line-height: bold;
+    color: #450101;
 }
 
-.imputOrderName {
-    
-}
+
 
 .selectedProducts{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    
     align-items: center; 
-    padding: 12px; 
+    padding: 6px; 
     border-bottom: 1px solid #ccc; /* Add a separator between items */
+    color: #450101;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-family: 'Inconsolata', monospace;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
+.divIncreOrDecre {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; 
+    flex-grow: 2;
+    padding: 12px; 
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-family: 'Inconsolata', monospace;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+}
 .buttonLess , .buttonMore {
-    width: 40px;
-    height: 38px;
+    
+    width: 45px;
+    height: 42px;
+    font-size: 32px;
     flex-shrink: 0;
     border-radius: 9px;
+    
     background: #FDFAFA;
 }
 
@@ -132,6 +209,21 @@ html,
 .totalTitle {
     display: flex;
     flex-direction: row;
+    font-family: 'Inconsolata', monospace;
+    color: #450101;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+}
+.totalNumber {
+    font-family: 'Inconsolata', monospace;
+    color: #450101;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
 
 
@@ -180,9 +272,3 @@ html,
   transform: translateY(0);
 }
 
-
-.divIncreOrDecre{
-    display: flex;
-    flex-direction: row;
-
-}

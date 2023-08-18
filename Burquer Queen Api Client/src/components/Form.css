@@ -1,3 +1,11 @@
+html,
+    body {
+        width: 100% !important;
+        height: 100% !important;
+        margin: 0px;
+        padding: 0px;
+        background-color: rgba(50, 0, 0, 1);
+    }
 .sectionForm {
   display: flex;
   flex-direction: column;
